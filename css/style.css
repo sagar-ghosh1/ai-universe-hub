@@ -67,16 +67,16 @@
 }
 
 .loader:before {
-    animation: ball1 1s infinite;
+    animation: bounce 1s infinite;
     background-color: #cb2025;
-    box-shadow: 30px 0 0 #f8b334;
+    box-shadow: 30px 0 0 #fbff17;
     margin-bottom: 10px;
 }
 
 .loader:after {
-    animation: ball2 1s infinite;
-    background-color: #00a096;
-    box-shadow: 30px 0 0 #97bf0d;
+    animation: bounce 1s infinite;
+    background-color: #14fc4e;
+    box-shadow: 30px 0 0 #2439f1;
 }
 
 /* keyframes */

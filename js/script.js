@@ -84,11 +84,10 @@ const displayShowData = (allTools) => {
               <i class="fa-solid fa-calendar-days"></i>
               <span class="ml-1 font-medium">${published_in} </span>
             </div>
-            <label onClick="toolInfo('${id}')" for="my-modal-3" class="fa-solid fa-arrow-right mr-2 bg-red-400 p-2 rounded-full text-white cursor-pointer"></label>
+            <label onClick="toolInfo('${id}')" for="my-modal-3" class="fa-solid fa-arrow-right mr-2 bg-green-500 p-2 rounded-full text-white cursor-pointer"></label>
           </div>
         </div>
        
-          
           `;
     });
 };
