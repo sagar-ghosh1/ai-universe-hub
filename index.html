@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <!-- header section start -->
+    <!-- header section -->
 
     <header class="flex flex-col items-center justify-center mt-4">
         <h1 class="text-2xl font-bold">AI Universe Hub</h1>
@@ -33,10 +33,23 @@
         </button>
     </header>
 
-    <!-- all card container start -->
+    <!-- card container -->
 
     <main class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-around mt-8" id="main-container">
     </main>
+
+    <!-- modal section -->
+
+    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+    <div class="modal">
+        <div class="modal-box relative w-[90%] max-w-4xl">
+            <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+
+            <!-- modal info container section -->
+
+            <div class="flex p-2 gap-4 modal-container" id="modal-info"></div>
+        </div>
+    </div>
 
 
 
