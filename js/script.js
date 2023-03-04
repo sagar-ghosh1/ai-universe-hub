@@ -93,3 +93,16 @@ const displayShowData = (allTools) => {
     });
 };
 
+// The work of the following function is to fetch the data through dynamic id
+
+const toolInfo = (id) => {
+    const URL = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
+    try {
+        fetch(URL)
+            .then((res) => res.json())
+            .then((data) => displayToolInfo(data.data));
+    } catch (err) {
+        console.log(err);
+    }
+};
+
