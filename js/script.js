@@ -209,3 +209,11 @@ const displayToolInfo = (singleToolInfo) => {
 
 fetchData();
 
+//The function is to display the website loading animation
+
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader-section");
+    setTimeout(function () {
+        loader.style.display = "none";
+    }, 1000);
+});
