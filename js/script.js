@@ -106,3 +106,106 @@ const toolInfo = (id) => {
     }
 };
 
+// function is to display the data of dynamic id through modal.
+
+const displayToolInfo = (singleToolInfo) => {
+    const {
+        description,
+        pricing,
+        features,
+        integrations,
+        image_link,
+        input_output_examples,
+        accuracy,
+    } = singleToolInfo;
+
+    const featureArr = [];
+    for (const feature in features) {
+        const values = Object.values(features[feature]);
+        featureArr.push(values[0]);
+    }
+
+    const modalInfo = document.getElementById("modal-info");
+    modalInfo.innerHTML = "";
+    modalInfo.innerHTML += `
+    
+    <div class="shadow-sm p-2 rounded-md bg-red-100">
+    <p class="font-semibold text-lg mb-2">
+      ${description}
+    </p>
+    <div class="flex gap-2 justify-between px-2 my-4 price-container">
+      <div
+        class="flex flex-col items-center justify-center bg-white p-2 rounded-md text-green-500 font-bold"
+      >
+        <span>${pricing !== null ? pricing[0].price : "Free Of Cost"} </span> ${pricing !== null ? "/" + pricing[0].plan : "/Basic"
+        }
+      </div>
+      <div
+        class="flex flex-col items-center justify-center bg-white p-2 rounded-md text-orange-500 font-bold"
+      >
+      <span>${pricing !== null ? pricing[1].price : "Free Of Cost"} </span> ${pricing !== null ? "/" + pricing[1].plan : "/Pro"
+        }
+      </div>
+      <div
+        class="flex flex-col items-center justify-center bg-white p-2 rounded-md text-blue-500 font-bold"
+      >
+      <span>${pricing !== null ? pricing[2].price : "Free Of Cost"} </span> ${pricing !== null ? "/" + pricing[2].plan : "/Enterprise"
+        }
+      </div>
+    </div>
+    <div class="flex gap-4 justify-between px-2">
+      <div>
+        <h2 class="font-semibold">Features:</h2>
+        <ul class="list-disc ml-4">
+            ${featureArr
+            ? featureArr.map((feature) => `<li>${feature}</li>`).join("")
+            : `<span class="ml-[-15px] font-medium text-yellow-500">No Data Found</span>`
+        }
+        </ul>
+      </div>
+      <div>
+        <h2 class="font-semibold">Integrations:</h2>
+        <ul class="list-disc ml-4">
+        ${integrations
+            ? integrations
+                .map((integration) => `<li>${integration}</li>`)
+                .join("")
+            : `<span class="ml-[-15px] font-medium text-yellow-500">No Data Found</span>`
+        }
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="shadow-sm p-2 rounded-sm w-[100%] relative">
+    <img
+      class="rounded-md model-image"
+      src=${image_link[0]}
+      alt=""
+    />
+    <h3 class="text-center text-lg font-bold mt-2">${input_output_examples
+            ? input_output_examples[0].input
+            : "No Question Available"
+        } </h3>
+    <p class="text-center mt-1 ">
+      ${input_output_examples
+            ? input_output_examples[0].output
+            : "No! Not Yet! Take a break!!!"
+        }
+    </p>
+    ${accuracy.score
+            ? `
+    <p class="bg-red-500 p-2 rounded-md w-fit text-white text-base absolute top-0 right-0 mr-4 mt-4 accuracy-text"><span> ${accuracy.score * 100 + "%"
+            } </span>Accuracy</p>
+    
+    `
+            : `<p class="bg-red-500 p-2 rounded-md w-fit text-white text-base absolute top-0 right-0 mr-4 mt-4 hidden"><span></span>Accuracy</p>`
+        }
+    
+  </div>
+    
+    `;
+};
+
+fetchData();
+
