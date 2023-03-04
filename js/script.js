@@ -54,3 +54,42 @@ const displayDataFunc = (allToolsData) => {
     displayShowData(firstSixItems);
 };
 
+// The work of the following function is only to display the data.
+
+const displayShowData = (allTools) => {
+    const mainContainer = document.getElementById("main-container");
+    mainContainer.innerHTML = "";
+    allTools.forEach((singleTool) => {
+        const { image, name, features, published_in, id } = singleTool;
+
+        mainContainer.innerHTML += `
+          
+          <div class="card glass p-4 mx-8">
+          <figure>
+            <img src=${image} alt="car!" />
+          </figure>
+          <div>
+            <h2 class="mt-2 text-xl font-semibold">Features:</h2>
+            <ul class="list-decimal">
+             ${features
+                .map((feature) => `<li class="ml-4">${feature}</li>`)
+                .join("")}
+            </ul>
+      
+          </div>
+          <hr class="my-2" />
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-lg font-medium">${name} </h3>
+              <i class="fa-solid fa-calendar-days"></i>
+              <span class="ml-1 font-medium">${published_in} </span>
+            </div>
+            <label onClick="toolInfo('${id}')" for="my-modal-3" class="fa-solid fa-arrow-right mr-2 bg-red-400 p-2 rounded-full text-white cursor-pointer"></label>
+          </div>
+        </div>
+       
+          
+          `;
+    });
+};
+
